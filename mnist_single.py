@@ -23,9 +23,7 @@ with tf.name_scope("linear_model") as scope:
   b_summary = tf.summary.histogram("biases", b)
 
 with tf.name_scope("cost_function") as scope:
-  cross_entropy = tf.reduce_mean(
-    tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=y)
-  )
+  cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=y))
   l_summary = tf.summary.scalar("loss", cross_entropy)
 
 with tf.name_scope("train") as scope:
